@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+ <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+<script type="text/javascript">
+function func()
+  {   
+    var txtbox = document.getElementById('comment');  
+    var txt = txtbox.value;
+    document.getElementById('para').innerHTML = txt;
+    //$( "#para" ).append( txt + '<br>');
+    $( txtbox ).val('');   
+    //document.getElementById('para').innerHTML=txt + '<br>';
+  }
+</script>
+
+</head>
+<style>
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+}
+body{
+  background-color: black;
+}
+.header {
+  padding: 40px;
+  text-align: center;
+  background: #1abc9c;
+  color: black;
+}
+.header h1 {
+  font-size: 50px;
+}
+
+.navbar {
+  overflow: hidden;
+  background-color: #333;
+}
+
+
+.search {
+  width: 100%;
+  height: 36px;
+  position: relative;
+  display: flex;
+}
+
+.searchTerm {
+  width: 100%;
+  border: 3px solid white;
+  border-right: none;
+  padding: 5px;
+  height: 36px;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+  color: #9DBFAF;
+}
+
+.searchTerm:focus{
+  color: black;
+}
+
+.searchButton {
+  width: 40px;
+  height: 36px;
+  border: 2px solid #00B4CC;
+  background: #00B4CC;
+  text-align: center;
+  color: #fff;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+ .comment {
+      width: 40%;
+      height: 100px;
+      padding: 10px;
+      background-color: white;
+      color: black;
+      }
+
+.btn{
+  background-color: DodgerBlue;
+  border: none;
+  color: white;
+  padding: 12px 30px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.btn:hover {
+  background-color: RoyalBlue;
+}
+
+.searchButton:hover {
+  background-color: RoyalBlue;
+}
+
+.a{
+    color: grey;
+}
+
+h3,h4,p{
+  color: white;
+  text-align: center;
+}
+
+label{
+    display: inline-block;
+    float: left;
+    clear: left;
+    width: 470px;
+    text-align: right;
+}
+
+.b{
+   display: inline-block;
+   float: left;
+   clear: left;
+   width: 480px;
+   text-align: right;
+}
+
+.bb{
+    display: inline-block;
+   float: left;
+   clear: left;
+   width: 600px;
+   text-align: right;
+}
+
+</style>
+<script type="text/javascript">
+  /*func()
+  {   
+    var txtbox = document.getElementById('comment');  
+    var txt = txtbox.value;
+    $( "#para" ).append( txt + '<br>');
+    $( txtbox ).val('');   
+    //document.getElementById('para').innerHTML=txt + '<br>';
+  }*/
+</script>
+
+<body>
+  <div class="header">
+  <h1>MyCourse Database</h1>
+</div>
+
+<div class="navbar">
+  <div class="search">
+    <input type="text" class="searchTerm" placeholder="Search..">
+    <a href="second.html">
+    <button type="button" class="searchButton">
+        <i class="fa fa-search"></i>
+     </button></a>
+   </div>
+ </div>
+
+<br><br>
+<h3> About Tutor: </h3>
+<h4> //Name of the Tutor</h4>
+<h3> About course: </h3>
+<h4> //Course description</h2>
+<h3> Documents: </h3>
+<label for="example" class="b">
+      </label>
+<form action="/action_page.php">
+  <input type="file" id="myFile" class="a" name="filename">
+<button class="btn"><i class="fa fa-upload"></i> Upload
+</button>
+</form>
+<br>
+  <label for="example" class="bb">
+      </label>    
+<button class="btn"><i class="fa fa-download"></i> Download
+</button>
+
+  <br><br>
+<h3> Student's Review: </h3>
+
+  <div class="info">
+    <form>
+      <label for="example">
+      </label>
+      <textarea id="comment" class="comment" placeholder="Type your comment here..."></textarea>
+   <!--   <textarea id="comment" class="comment" placeholder="Type your comment here..."> 
+      </textarea> -->
+      <br>
+      <label for="example">
+      </label>
+      <button class="btn" onclick="func()"><i class="fa fa-comment"></i> Comment</button>
+    </form>
+  </div>
+  <br><br>
+  <p id="para">      
+    </p>
+
+</body>
+</html>
