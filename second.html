@@ -9,18 +9,6 @@
     
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 
-<script type="text/javascript">
-function func()
-  {   
-    var txtbox = document.getElementById('comment');  
-    var txt = txtbox.value;
-    document.getElementById('para').innerHTML = txt;
-    //$( "#para" ).append( txt + '<br>');
-    $( txtbox ).val('');   
-    //document.getElementById('para').innerHTML=txt + '<br>';
-  }
-</script>
-
 </head>
 <style>
 body {
@@ -28,7 +16,7 @@ body {
   margin: 0;
 }
 body{
-  background-color: black;
+  background-color: #000000;
 }
 .header {
   padding: 40px;
@@ -138,18 +126,15 @@ label{
    text-align: right;
 }
 
-</style>
-<script type="text/javascript">
-  /*func()
-  {   
-    var txtbox = document.getElementById('comment');  
-    var txt = txtbox.value;
-    $( "#para" ).append( txt + '<br>');
-    $( txtbox ).val('');   
-    //document.getElementById('para').innerHTML=txt + '<br>';
-  }*/
-</script>
+.c{
+    display: inline-block;
+    float: left;
+    clear: left;
+    width: 400px;
+    text-align: right;
+}
 
+</style>
 <body>
   <div class="header">
   <h1>MyCourse Database</h1>
@@ -184,25 +169,38 @@ label{
 <button class="btn"><i class="fa fa-download"></i> Download
 </button>
 
-  <br><br>
-<h3> Student's Review: </h3>
+  <br><br><br>
 
-  <div class="info">
-    <form>
-      <label for="example">
-      </label>
-      <textarea id="comment" class="comment" placeholder="Type your comment here..."></textarea>
-   <!--   <textarea id="comment" class="comment" placeholder="Type your comment here..."> 
-      </textarea> -->
-      <br>
-      <label for="example">
-      </label>
-      <button class="btn" onclick="func()"><i class="fa fa-comment"></i> Comment</button>
-    </form>
-  </div>
-  <br><br>
-  <p id="para">      
-    </p>
+<h3>Course Review and Ratings</h3>
+<!-- Start BawkBox Code-->
+<script data-sil-id="5e88a890c677fa001b8e3f79">
+var loadWidget = function() { 
+var d = document, w = window, l = window.location,p = l.protocol == "file:" ? "http://" : "//"; 
+if (!w.WS) w.WS = {};
+ c = w.WS;
+  var m=function(t, o){
+   var e = d.getElementsByTagName("script");
+    e=e[e.length-1];
+     var n = d.createElement(t);
+      if (t=="script") {
+      n.async=true;
+    }
+     for (k in o) 
+      n[k] = o[k];
+       e.parentNode.insertBefore(n, e)};
+        m("script", { src: p + "bawkbox.com/widget/star-rating/5e88a890c677fa001b8e3f79?page=" +encodeURIComponent(l+''), type: 'text/javascript' }); c.load_net = m; }; 
+      if(window.Squarespace){
+       document.addEventListener('DOMContentLoaded', loadWidget);
+        setTimeOut(function(){ document.addEventListener('DOMContentLoaded', loadWidget); }, 3000) }
+         else {
+          loadWidget() }
+           </script>
+           <script type="application/ld+json" src="/widget/star-rating/5e88a890c677fa001b8e3f79/microdata"></script>
+              <label for="example" class="c">
+            </label>
+           <div class="sil-widget-star-rating sil-widget" id="sil-widget-5e88a890c677fa001b8e3f79">
+           
+            <a href="//bawkbox.com/install/star-rating">Customer Reviews</a></div><!-- End BawkBox Code-->
 
 </body>
 </html>
