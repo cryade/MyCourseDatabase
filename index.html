@@ -1,0 +1,142 @@
+<html>
+<head>
+	<title>Homepage</title>
+	<script type="text/javascript" src="homepage.js"></script>
+	<link rel="stylesheet" type="text/css" href="homepage.css">
+</head>
+<body background="background.jpg" style="width: 1366px;margin: 0 auto">
+	<div id="login_page_div">
+		<div class="login_page">
+			<label class="login_title"><span>MyCourseDB</span></label><br /><br />
+			<input id="usernumber" type="text" placeholder="Input username" style="width: 240px;height: 24px;"/><br />
+			<input id="password" type="password" placeholder="Input password" style="width: 240px;height: 24px;"/><br />
+			<a href="first.html">
+			<input type="button" onclick="return login()" id="login" value="Login" style="width:100px;height: 26px;"/></a><br />
+			<input type='button' style="background: transparent; border:none; outline: none; color:#ffffff;" onclick="go_to_register()" value='Register' />&nbsp;&nbsp;&nbsp;
+			<input type='button'style="background: transparent; border:none; outline: none; color: #ffffff;"  onclick="go_to_reset_password()" value='Forgot password?'/><br/>
+		</div>
+	</div>
+
+	<div id="register_page_div">
+		<div class="register_page">
+			<label class="register_title"><span>Register</span></label><br /><br />
+			<input id="r_name" type="text" placeholder="Input your name" style="width: 240px;height: 24px;"/><br />
+			<input id="r_email" type="text" placeholder="Input your email" style="width: 240px;height: 24px;"/><br />
+			<input id="r_password" type="password" placeholder="Input a password" style="width: 240px;height: 24px;"/><br />
+			<input id="r_password_again" type="password" placeholder="Confirm the password" style="width: 240px;height: 24px;"/><br />
+			<input type="button" onclick="return register()" id="regist" value="Register" style="width:100px;height: 26px;"/><br />
+			<input type='button' style="background: transparent; border:none; outline: none; color: #ffffff;"  onclick="go_to_login()" value='Back to login'/>&nbsp;&nbsp;&nbsp;
+			<input type='button' style="background: transparent; border:none; outline: none; color: #ffffff;" onclick="go_to_reset_password()" value='Forgot password?'/><br/>
+		</div>
+	</div>
+
+	<div id="reset_password_page_div">
+		<div class="reset_password_page">
+			<label class="register_title"><span>Reset password</span></label><br /><br />
+			<input id="s_usernumber" type="text" placeholder="Input username" style="width: 240px;height: 24px;"/><br />
+			<input id="s_password" type="password" placeholder="Input password" style="width: 240px;height: 24px;"/><br />
+			<input id="s_password_again" type="password" placeholder="Confirm the password" style="width: 240px;height: 24px;"/><br />
+			<input type="button" onclick="return reset()" id="reset" value="Reset" style="width:100px;height: 26px;"/><br />
+			<input type='button' style="background: transparent; border:none; outline: none; color: #ffffff;" onclick="go_to_login()" value='Back to login'/>&nbsp;&nbsp;&nbsp;
+			<input type='button' style="background: transparent; border:none; outline: none; color: #ffffff;"  onclick="go_to_register()" value='Register' />&nbsp;&nbsp;&nbsp;
+		</div>
+	</div>
+	<script src="jq.js"></script>
+	<script>
+		function login(){
+			var user = document.getElementById('usernumber').value;
+			var pass = document.getElementById('password').value;
+			if(user == "" || pass == ""){
+				alert('user or password is null')
+				return false;
+			}
+			$.ajax({
+				type: "POST",
+				url: "https://266a417d-a141-4b36-b85c-c9d4e57ae449.mock.pstmn.io/api/user/login.php",
+				data: {
+					"username":user,
+					"password":pass,
+								},
+				dataType : "json",
+				success: function(msg){
+					if(msg.hasOwnProperty('userID')){
+						alert('login successfully! User ID: ' + msg['userID']);
+					}else{
+						alert('Unable to login');
+					}
+				}
+				});
+		}
+		function register(){
+			var user = document.getElementById('r_name').value;
+			var email = document.getElementById('r_email').value;
+			var pass = document.getElementById('r_password').value;
+			var pass_again = document.getElementById('r_password_again').value;
+			if(user == "" || pass == "" || email == ""){
+				alert('user, password or email cannot be null')
+				return false;
+			}
+			if(pass != pass_again){
+				alert('Two password is not same!')
+				return false;
+			}
+			$.ajax({
+				type: "POST",
+				url: "https://266a417d-a141-4b36-b85c-c9d4e57ae449.mock.pstmn.io/api/user/register.php",
+				data: {
+					"username":user,
+					"email": email,
+					"password": pass,
+								},
+				dataType : "json",
+				success: function(msg){
+					if(msg.hasOwnProperty('userID')){
+						alert('register successfully! User ID: ' + msg['userID']);
+					}else{
+						alert('Unable to register');
+					}
+				},
+				error : function(errorMsg) {
+					alert("Failed to connected the server!");
+				}
+				});
+		}
+		function reset(){
+			var user = document.getElementById('s_usernumber').value;
+			var pass = document.getElementById('s_password').value;
+			var pass_again = document.getElementById('s_password_again').value;
+			if(user == "" || pass == ""){
+				alert('user, password or email cannot be null')
+				return false;
+			}
+			if(pass != pass_again){
+				alert('Two password is not same!')
+				return false;
+			}
+			$.ajax({
+				type: "POST",
+				url: "https://266a417d-a141-4b36-b85c-c9d4e57ae449.mock.pstmn.io/api/user/reset.php",
+				data: {
+					"username": user,
+					"password": pass,
+								},
+				dataType : "json",
+				success: function(msg){
+					if(msg.hasOwnProperty('userID')){
+						alert('reset successfully! User ID: ' + msg['userID']);
+					}else{
+						alert('Unable to reset');
+					}
+				},
+				error : function(errorMsg) {
+					alert("Failed to connected the server!");
+				}
+				});
+		}
+
+	</script>
+	<script>
+
+	</script>
+</body>
+</html>
